@@ -1,0 +1,52 @@
+.projects {
+  background: #3b3b44;
+  padding: 7rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.projects .projectLeft,
+.projects .projectRight {
+  display: flex;
+  flex-direction: column;
+  inset: 0;
+  margin: auto;
+  align-items: center;
+  font-family: "Roboto Mono", monospace;
+}
+.projects .projectLeft .heading {
+  margin: 3rem 0 8rem 7rem;
+  font-size: 2.5rem;
+  color: #fff;
+}
+.projects .projectLeft .card {
+  margin-left: 6rem;
+}
+.projects .projectLeft .chat {
+  margin-left: 8rem;
+  margin-top: 7rem;
+  position: relative;
+  color: #8cec8c;
+  text-decoration: underline;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+.projects .projectRight .card1 {
+  margin-bottom: 3rem;
+}
+@media (max-width: 860px) {
+  .projects {
+    flex-direction: column;
+  }
+  .projects .projectLeft .card,
+  .projects .projectLeft .chat,
+  .projects .projectLeft .heading {
+    margin-left: 0;
+  }
+  .projects .projectLeft .chat {
+    transform: translateY(105vh);
+  }
+  .projects .projectRight {
+    margin-top: -5rem;
+  }
+}

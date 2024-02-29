@@ -1,0 +1,96 @@
+.home {
+  display: flex;
+  padding-top: 8rem;
+  align-items: center;
+  justify-content: space-evenly;
+  transition: 0.4s;
+}
+.home .left-home {
+  font-family: "Roboto Mono", monospace;
+  margin-bottom: 5rem;
+  padding-right: 2rem;
+}
+.home .left-home .heading-box {
+  background-color: #8cec8c;
+  padding: 0.3rem;
+  font-size: 13px;
+  border-radius: 3px;
+}
+.home .left-home .headline {
+  color: #fff;
+  margin: 1.5rem 0;
+  font-size: 3rem;
+}
+.home .left-home .para {
+  font-size: 13px;
+  color: #ffffff99;
+}
+.home .left-home .chat {
+  position: relative;
+  top: 4rem;
+  color: #8cec8c;
+  text-decoration: underline;
+}
+.home .right-home {
+  width: 40rem;
+}
+.home .right-home .container {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+.home .right-home img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+@media (max-width: 1150px) {
+  .left-home {
+    padding-left: 2rem;
+  }
+  .home .left-home .headline {
+    font-size: 2.5rem;
+  }
+  .home .right-home {
+    width: 30rem;
+  }
+}
+@media (max-width: 860px) {
+  .home {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .home .left-home {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .home .left-home .headline {
+    margin: 1.5rem 0;
+    font-size: 3rem;
+  }
+  .home .left-home .para {
+    font-size: 13px;
+  }
+  .home .left-home .chat {
+    position: relative;
+    top: 4rem;
+  }
+}
+@media (max-width: 630px) {
+  .home .left-home .headline {
+    margin: 1.2rem 0;
+    font-size: 2rem;
+  }
+  .home .left-home .para {
+    font-size: 11px;
+  }
+  .home .right-home {
+    width: 22rem;
+  }
+}
+@media (max-width: 360px) {
+  .home .right-home {
+    width: 19rem;
+  }
+}

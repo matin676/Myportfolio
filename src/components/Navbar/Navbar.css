@@ -1,0 +1,207 @@
+.mail-btn,
+nav .logo {
+  position: relative;
+  z-index: 1;
+}
+.contact-btn,
+.mail-btn,
+.menubar-btn,
+nav,
+nav .menu,
+nav .menu li a,
+nav .menu.show {
+  transition: 0.4s;
+}
+nav {
+  position: absolute;
+  font-family: "Roboto Mono", monospace;
+  width: 100%;
+  z-index: 999;
+  padding: 30px 0;
+}
+nav .max-width {
+  max-width: 90%;
+  margin: auto;
+}
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo {
+  left: 4%;
+}
+nav .logo a {
+  color: #fff;
+  font-family: "DM Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+}
+nav .logo a span {
+  color: #0a0;
+  font-weight: 300;
+}
+nav .menu {
+  position: absolute;
+  display: flex;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  background: 0 0;
+}
+nav .menu.show {
+  justify-content: flex-start;
+  padding-top: 45%;
+  transform: translateX(0);
+}
+.extra-btn.show {
+  transform: translateX(-70%);
+  transition: 0.4s;
+}
+nav .menu li {
+  list-style: none;
+  display: inline-block;
+}
+nav .menu li a {
+  display: block;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 25px;
+}
+nav .menu li a:hover {
+  color: #0a0;
+}
+.menu-btn:after {
+  display: block;
+  content: "";
+  border-bottom: 2px solid #0a0;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
+  transform-origin: 100% 50%;
+  padding-top: 2px;
+}
+.menu-btn:hover:after {
+  transform: scaleX(1);
+  transform-origin: 0 50%;
+}
+.extra-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-btn {
+  display: flex;
+  z-index: 1;
+  color: #fff;
+  padding-right: 2rem;
+}
+.contact-btn:hover,
+.mail-btn {
+  color: #8cec8c;
+}
+.contact-btn span {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  color: #ffffffb9;
+}
+.mail-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background-color: #40414b;
+  font-size: 1.2rem;
+}
+.mail-btn:hover {
+  background-color: #3d3d45;
+}
+.menubar-btn {
+  cursor: pointer;
+  display: none;
+  color: #fff;
+}
+@media (max-width: 1310px) {
+  .max-width {
+    padding: 0 70px;
+  }
+}
+@media (max-width: 998px) {
+  .menubar-btn,
+  .theme-btn,
+  nav .logo {
+    position: absolute;
+    display: flex;
+  }
+  nav {
+    position: fixed;
+  }
+  nav.sticky {
+    background-color: #474953db;
+    padding: 1.2rem;
+  }
+  nav .logo {
+    left: 0;
+    padding: 0 0 0 20px;
+  }
+  nav .logo a {
+    font-size: 25px;
+  }
+  nav .menu {
+    min-height: 100svh;
+    flex-direction: column;
+    top: 0;
+    right: 35%;
+    transform: translateX(-100%);
+    background-color: #474953;
+    transition: 0.2s ease-in-out;
+  }
+  nav .menu li {
+    padding: 1rem 0;
+  }
+  nav .menu li a {
+    font-size: 1rem;
+    color: #8cec8c;
+  }
+  .menu-btn:after {
+    border-bottom: none;
+  }
+  .theme-btn {
+    left: 14rem;
+    top: 2.5rem;
+  }
+  .menubar-btn {
+    right: 10%;
+    top: 22%;
+    z-index: 1;
+  }
+  .extra-btn {
+    position: relative;
+    top: 27rem;
+    right: 0;
+    transform: translateX(-700%);
+  }
+  .contact-btn .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #000;
+  }
+  .contact-btn span {
+    display: none;
+  }
+  .mail-btn {
+    margin-left: 0;
+    width: 1.8rem;
+    height: 1.8rem;
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 580px) {
+  .extra-btn {
+    top: 40rem;
+  }
+}
