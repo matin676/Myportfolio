@@ -6,6 +6,9 @@ body {
 .card__img {
   transition: transform 0.2s;
 }
+.card:is(:hover, :focus-visible) {
+  --hover: 1;
+}
 :root {
   --blur: 16px;
   --size: clamp(300px, 50vmin, 600px);
@@ -79,9 +82,6 @@ body {
   padding: 6px 15px;
   border-radius: 25px;
   margin-top: 8px;
-}
-.card:is(:hover, :focus-visible) {
-  --hover: 1;
 }
 @media (max-width: 1150px) {
   .card {
