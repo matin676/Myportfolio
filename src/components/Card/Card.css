@@ -59,8 +59,9 @@ body {
   width: calc(var(--size) * 0.15);
   bottom: 25%;
   right: 1.5rem;
-  transform: translateY(50%) translateY(calc((var(--size) * 0.4)))
-    translateY(calc(var(--hover, 0) * (var(--size) * -0.4)));
+  transform: translateY(
+    calc(50% + (var(--size) * 0.4) + var(--hover, 0) * (var(--size) * -0.4))
+  );
   border-radius: 0.5rem;
 }
 .card__action .icon {
