@@ -132,6 +132,14 @@ export default function About() {
                 title="NPM"
               />
             </div>
+            <div className="skill-container">
+              <img
+                src="/images/python.webp"
+                alt="python"
+                className="icon"
+                title="Python"
+              />
+            </div>
           </div>
         </div>
       </AnimatedOnScroll>
