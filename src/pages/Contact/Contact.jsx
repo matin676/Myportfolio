@@ -128,7 +128,7 @@ export default function Contact() {
               <FaGithub />
             </a>
             <a
-              href="https://www.linkedin.com/in/matinimam/"
+              href="https://www.linkedin.com/in/matin-imam/"
               target="_blank"
               rel="noreferrer"
             >
