@@ -5,7 +5,6 @@ import {
   DiJavascript,
   DiReact,
   DiNodejsSmall,
-  DiPhp,
   DiMysql,
   DiGit,
   DiBootstrap,
@@ -74,10 +73,11 @@ export default function About() {
               />
             </div>
             <div className="skill-container">
-              <DiPhp
+              <img
+                src="/images/nextjs.webp"
+                alt="nextjs"
                 className="icon"
-                style={{ color: "#8F78A4" }}
-                title="PHP"
+                title="NextJs"
               />
             </div>
             <div className="skill-container">

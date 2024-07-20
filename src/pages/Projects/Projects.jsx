@@ -13,8 +13,8 @@ export default function Projects() {
           <Card
             imgName="musicplayer"
             projectName="MusicPlayer"
-            technologies="React | CSS"
-            linkName="music-player"
+            technologies="MERN | Firebase | TailwindCss"
+            linkName="music-app"
             className="card"
           />
         </AnimatedOnScroll>
@@ -33,7 +33,7 @@ export default function Projects() {
             <Card
               imgName="hangman"
               projectName="Hangman Game"
-              technologies="React | CSS | NodeJs | ExpressJs"
+              technologies="React | CSS | GeminiAI API"
               linkName="Hangman-Game"
             />
           </AnimatedOnScroll>

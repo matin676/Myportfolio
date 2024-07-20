@@ -4,6 +4,7 @@ import {
   FaFacebookF,
   FaLinkedinIn,
   FaArrowRight,
+  FaDev,
 } from "react-icons/fa6";
 import moment from "moment";
 import emailjs from "@emailjs/browser";
@@ -128,7 +129,7 @@ export default function Contact() {
               <FaGithub />
             </a>
             <a
-              href="https://www.linkedin.com/in/matin-imam/"
+              href="https://www.linkedin.com/in/matinimam/"
               target="_blank"
               rel="noreferrer"
             >
@@ -140,6 +141,9 @@ export default function Contact() {
               rel="noreferrer"
             >
               <FaFacebookF />
+            </a>
+            <a href="https://dev.to/matin676" target="_blank" rel="noreferrer">
+              <FaDev />
             </a>
           </div>
         </div>
