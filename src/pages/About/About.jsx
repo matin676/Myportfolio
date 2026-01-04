@@ -1,170 +1,108 @@
 import React from "react";
-import {
-  DiHtml5,
-  DiCss3,
-  DiJavascript,
-  DiReact,
-  DiNodejsSmall,
-  DiMysql,
-  DiGit,
-  DiBootstrap,
-  DiNpm,
-} from "react-icons/di";
-import { AnimatedOnScroll } from "react-animated-css-onscroll";
-
+import { motion } from "framer-motion";
+import { FaLightbulb, FaUsers, FaRocket } from "react-icons/fa6";
 import "./About.css";
 
-export default function About() {
+const About = () => {
+  const highlights = [
+    {
+      icon: <FaLightbulb />,
+      title: "Problem Solver",
+      desc: "I don't just write code; I engineer solutions. From optimizing database queries to crafting intuitive UIs, I focus on efficiency and impact.",
+    },
+    {
+      icon: <FaUsers />,
+      title: "Team Leader",
+      desc: "With experience leading design teams and facilitating cloud jams at GDSC, I thrive in collaborative environments and mentorship roles.",
+    },
+    {
+      icon: <FaRocket />,
+      title: "Innovator",
+      desc: "Constantly exploring new tech stacks like Spring Boot and MERN to build scalable, enterprise-grade applications that stand the test of time.",
+    },
+  ];
+
   return (
-    <section className="about" id="about">
-      <AnimatedOnScroll animationIn="slideInLeft" animationInDuration={600}>
-        <div className="left-about">
-          <p className="expertise">My TechStack</p>
-          <div className="container">
-            <div className="skill-container">
-              <DiHtml5
-                className="icon"
-                style={{ color: "#FF4000" }}
-                title="HTML5"
-              />
+    <section id="about" className="about-section">
+      <div className="container">
+        <div className="about-wrapper">
+          {/* Left: Image / Visual */}
+          <motion.div
+            className="about-image-container"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="img-backdrop"></div>
+            <img
+              src="/images/mi_logo.png"
+              alt="MI Logo"
+              className="about-img"
+            />
+            <div className="floating-badge">
+              <span>🚀</span>
+              <div className="badge-text">
+                <strong>Always</strong>
+                <small>Learning</small>
+              </div>
             </div>
-            <div className="skill-container">
-              <DiCss3
-                className="icon"
-                style={{ color: "#0282C9" }}
-                title="CSS3"
-              />
+          </motion.div>
+
+          {/* Right: Content */}
+          <div className="about-content">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="about-heading">
+                Merging <span className="text-gradient">Logic</span> with{" "}
+                <span className="text-gradient">Creativity</span>
+              </h2>
+              <p className="about-intro">
+                As a <strong>Software Developer at TCS</strong> and a Computer
+                Science graduate, I bridge the gap between complex backend
+                systems and engaging frontend experiences. My journey isn't just
+                about learning languages—it's about leveraging technology to
+                solve real-world business challenges.
+              </p>
+            </motion.div>
+
+            <div className="highlights-grid">
+              {highlights.map((item, index) => (
+                <motion.div
+                  className="highlight-card"
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <div className="highlight-icon">{item.icon}</div>
+                  <div>
+                    <h4>{item.title}</h4>
+                    <p>{item.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-            <div className="skill-container">
-              <DiJavascript
-                className="icon"
-                style={{ color: "#E1BD00" }}
-                title="JavaScript"
-              />
-            </div>
-            <div className="skill-container">
-              <DiReact
-                className="icon"
-                style={{ color: "#93F8FF" }}
-                title="ReactJS"
-              />
-            </div>
-            <div className="skill-container">
-              <DiNodejsSmall
-                className="icon"
-                style={{ color: "#22A567" }}
-                title="NodeJs"
-              />
-            </div>
-            <div className="skill-container">
-              <img
-                src="/images/Express.webp"
-                alt="express"
-                className="icon"
-                title="Express"
-              />
-            </div>
-            <div className="skill-container">
-              <img
-                src="/images/mongodb.webp"
-                alt="mongodb"
-                className="icon"
-                title="MongoDB"
-              />
-            </div>
-            <div className="skill-container">
-              <img
-                src="/images/nextjs.webp"
-                alt="nextjs"
-                className="icon"
-                title="NextJs"
-              />
-            </div>
-            <div className="skill-container">
-              <DiMysql
-                className="icon"
-                style={{ color: "#007A6B" }}
-                title="MYSQL"
-              />
-            </div>
-            <div className="skill-container">
-              <DiGit
-                className="icon"
-                style={{ color: "#F4511E" }}
-                title="GIT"
-              />
-            </div>
-            <div className="skill-container">
-              <img
-                src="/images/figma.webp"
-                alt="figma"
-                className="icon"
-                title="Figma"
-              />
-            </div>
-            <div className="skill-container">
-              <img
-                src="/images/Tailwindcss.webp"
-                alt="tailwind"
-                className="icon"
-                title="Tailwind"
-              />
-            </div>
-            <div className="skill-container">
-              <DiBootstrap
-                className="icon"
-                style={{ color: "#8947CB" }}
-                title="Bootstrap"
-              />
-            </div>
-            <div className="skill-container">
-              <img
-                src="/images/firebase.webp"
-                alt="firebase"
-                className="icon"
-                title="Firebase"
-              />
-            </div>
-            <div className="skill-container">
-              <DiNpm
-                className="icon"
-                style={{ color: "#DD3434" }}
-                title="NPM"
-              />
-            </div>
-            <div className="skill-container">
-              <img
-                src="/images/python.webp"
-                alt="python"
-                className="icon"
-                title="Python"
-              />
-            </div>
+
+            <motion.div
+              className="about-action"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              <a href="#contact" className="btn btn-outline">
+                Get in Touch
+              </a>
+            </motion.div>
           </div>
         </div>
-      </AnimatedOnScroll>
-      <AnimatedOnScroll animationIn="slideInRight" animationInDuration={600}>
-        <div className="right-about">
-          <p className="introduce">Introduce</p>
-          <p className="heading">
-            Hello! I'm Matin <br />
-            Imam
-          </p>
-          <p className="about-para">
-            🚀 Hey there, digital trailblazer! 👋 I'm a full-stack sorcerer
-            weaving code into captivating digital realms. Think of me as a web
-            virtuoso, merging creativity and tech to sculpt experiences that
-            defy the ordinary.
-          </p>
-          <br />
-          <p className="about-para">
-            💻 Fluent in the languages of the future—HTML5, CSS3, and
-            JavaScript—I sculpt sleek interfaces that dance with user delight.
-            My backstage mastery involves Node.js and PHP, where I architect the
-            unseen, making the impossible, possible.
-          </p>
-        </div>
-      </AnimatedOnScroll>
+      </div>
     </section>
   );
-}
+};
+
+export default About;

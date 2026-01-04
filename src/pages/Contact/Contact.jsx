@@ -1,153 +1,154 @@
 import React, { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import {
   FaGithub,
-  FaFacebookF,
   FaLinkedinIn,
-  FaArrowRight,
+  FaSquareXTwitter,
   FaDev,
+  FaArrowRight,
 } from "react-icons/fa6";
-import moment from "moment";
 import emailjs from "@emailjs/browser";
-import { AnimatedOnScroll } from "react-animated-css-onscroll";
-
 import "./Contact.css";
 
-const serviceId = process.env.REACT_APP_EMAIL_SERVICE_ID;
-const templateId = process.env.REACT_APP_EMAIL_TEMPLATE_ID;
-const publicKey = process.env.REACT_APP_EMAIL_PUBLIC_KEY;
+const serviceId = import.meta.env.VITE_EMAIL_SERVICE_ID;
+const templateId = import.meta.env.VITE_EMAIL_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_EMAIL_PUBLIC_KEY;
 
 export default function Contact() {
-  const year = moment().format("YYYY");
   const form = useRef();
-  const [confirmMsg, setConfirmMsg] = useState("");
+  const [status, setStatus] = useState("idle"); // idle, sending, success, error
 
   const sendEmail = (e) => {
     e.preventDefault();
+    setStatus("sending");
 
     emailjs
-      .sendForm(serviceId, templateId, form.current, {
-        publicKey: publicKey,
+      .sendForm(serviceId, templateId, form.current, { publicKey })
+      .then(() => {
+        setStatus("success");
+        form.current.reset();
+        setTimeout(() => setStatus("idle"), 5000);
       })
-      .then(
-        () => {
-          console.log("Success");
-          setConfirmMsg("Message sent 🤗");
-          form.current.reset();
-        },
-        (error) => {
-          alert("OOPS! SOMETHING HAS FAILED...", error);
-        }
-      );
+      .catch(() => {
+        setStatus("error");
+      });
   };
+
+  const socials = [
+    { icon: <FaGithub />, link: "https://github.com/matin676" },
+    { icon: <FaLinkedinIn />, link: "https://www.linkedin.com/in/matin-imam/" },
+    { icon: <FaDev />, link: "https://dev.to/matin676" },
+  ];
 
   return (
     <section className="contact" id="contact">
-      <div className="contact_content">
-        <div className="left-contact">
-          <AnimatedOnScroll animationIn="fadeIn" animationInDuration={600}>
-            <p className="big-heading">
-              Let's make something amazing together.
+      <div className="container">
+        <motion.div
+          className="section-header"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="section-title">Get In Touch</h2>
+        </motion.div>
+
+        <div className="contact-wrapper">
+          {/* Contact Info */}
+          <motion.div
+            className="contact-info"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
+            <h3>Let's Talk</h3>
+            <p>
+              Have a project in mind or want to collaborate? I'm always open to
+              discussing new ideas and opportunities.
             </p>
-            <p className="smaller-text">
-              Start by <a href="#contact">saying hi</a>
-            </p>
-          </AnimatedOnScroll>
-          <AnimatedOnScroll animationIn="zoomIn" animationInDuration={600}>
+
+            <div className="info-item">
+              <span>Email</span>
+              <a href="mailto:matinimam77@gmail.com">matinimam77@gmail.com</a>
+            </div>
+
+            <div className="info-item">
+              <span>Location</span>
+              <p>Gujarat, India</p>
+            </div>
+
+            <div className="social-links">
+              {socials.map((s, i) => (
+                <a
+                  key={i}
+                  href={s.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-icon"
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            className="contact-form-wrapper glass-card"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+          >
             <form ref={form} onSubmit={sendEmail}>
-              <div className="form_content">
-                <label>Name: </label>
+              <div className="form-group">
                 <input
                   type="text"
-                  placeholder="Name"
                   name="user_name"
+                  placeholder="Name"
                   required
                 />
               </div>
-              <div className="form_content">
-                <label>Email: </label>
+              <div className="form-group">
                 <input
                   type="email"
-                  placeholder="Email"
                   name="user_email"
+                  placeholder="Email"
                   required
                 />
               </div>
-              <div className="form_content form_content-area">
-                <label>Message here: </label>
+              <div className="form-group">
                 <textarea
                   name="user_msg"
-                  placeholder="Write your message here"
+                  placeholder="Your Message"
+                  rows="5"
                   required
                 ></textarea>
               </div>
-              <p className="confirm_msg">{confirmMsg}</p>
-              <button type="submit" value="Send">
-                Send
-                <FaArrowRight className="icon" />
+
+              <button
+                type="submit"
+                className={`btn-primary submit-btn ${status}`}
+                disabled={status === "sending"}
+              >
+                {status === "sending" ? "Sending..." : "Send Message"}
+                {status === "idle" && <FaArrowRight />}
               </button>
+
+              {status === "success" && (
+                <p className="success-msg">Message sent successfully!</p>
+              )}
+              {status === "error" && (
+                <p className="error-msg">
+                  Something went wrong. Please try again.
+                </p>
+              )}
             </form>
-          </AnimatedOnScroll>
+          </motion.div>
         </div>
-        <AnimatedOnScroll animationIn="slideInUp" animationInDuration={600}>
-          <div className="right-contact">
-            <span>Information</span>
-            <p className="address">
-              Opposite sabjail, hmt., Gujarat, India - 383001
-            </p>
-            <p className="email">matinimam77@gmail.com</p>
-            <ul>
-              <li>
-                <a href="#home">home</a>
-              </li>
-              <li>
-                <a href="#projects">works</a>
-              </li>
-              <li>
-                <a href="#about">skills</a>
-              </li>
-              <li>
-                <a href="#contact">contact</a>
-              </li>
-            </ul>
-          </div>
-        </AnimatedOnScroll>
+
+        <footer className="footer-copyright">
+          <p>© {new Date().getFullYear()} Matin Imam. All Rights Reserved.</p>
+        </footer>
       </div>
-      <footer className="footer">
-        <div className="copyright">
-          <a href="/">
-            Matin <span>Imam</span>
-          </a>
-          <div>&copy; {year}. All Rights Reserved</div>
-        </div>
-        <div className="socials">
-          <div className="social-icon">
-            <a
-              href="https://github.com/matin676"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaGithub />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/matinimam/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaLinkedinIn />
-            </a>
-            <a
-              href="https://www.facebook.com/matin.imam"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <FaFacebookF />
-            </a>
-            <a href="https://dev.to/matin676" target="_blank" rel="noreferrer">
-              <FaDev />
-            </a>
-          </div>
-        </div>
-      </footer>
     </section>
   );
 }

@@ -1,65 +1,119 @@
-:root {
-  --hue: 223;
-  --bg: hsl(var(--hue), 90%, 95%);
-  --fg: hsl(var(--hue), 90%, 5%);
-  --trans-dur: 0.3s;
-}
-body {
-  place-items: center;
-  transition: background-color var(--trans-dur);
-}
-.ip {
-  width: 16em;
-  height: 8em;
-}
-.ip__track {
-  stroke: hsl(var(--hue), 90%, 90%);
-  transition: stroke var(--trans-dur);
-}
-.ip__worm1,
-.ip__worm2 {
-  animation: worm1 2s linear infinite;
-}
-.ip__worm2 {
-  animation-name: worm2;
+.preloader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: hsl(var(--hue), 90%, 5%);
-    --fg: hsl(var(--hue), 90%, 95%);
+/* Spinner */
+.spinner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.spinner-core {
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 20px var(--primary);
+  animation: pulse-core 1.5s ease-in-out infinite;
+}
+
+.spinner-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px solid transparent;
+  border-top-color: var(--secondary);
+  border-bottom-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.5));
+}
+
+/* Text Animation */
+.loading-text {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.2rem;
+  letter-spacing: 0.5rem;
+  color: var(--text-muted);
+}
+
+.loading-text span {
+  display: inline-block;
+  animation: fade 1.5s ease-in-out infinite;
+}
+
+.loading-text span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.loading-text span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+.loading-text span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.loading-text span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+.loading-text span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.loading-text span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.loading-text .dot:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.loading-text .dot:nth-child(9) {
+  animation-delay: 0.8s;
+}
+.loading-text .dot:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+/* Keyframes */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  .ip__track {
-    stroke: hsl(var(--hue), 90%, 15%);
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-/* Animation */
-@keyframes worm1 {
-  from {
-    stroke-dashoffset: 0;
+@keyframes pulse-core {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
   }
   50% {
-    animation-timing-function: steps(1);
-    stroke-dashoffset: -358;
-  }
-  50.01% {
-    animation-timing-function: linear;
-    stroke-dashoffset: 358;
-  }
-  to {
-    stroke-dashoffset: 0;
+    transform: scale(1.2);
+    opacity: 1;
   }
 }
-@keyframes worm2 {
-  from {
-    stroke-dashoffset: 358;
+
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0.3;
   }
   50% {
-    stroke-dashoffset: 0;
-  }
-  to {
-    stroke-dashoffset: -358;
+    opacity: 1;
+    color: var(--text-main);
   }
 }

@@ -1,0 +1,135 @@
+.experience {
+  padding: 8rem 0;
+  position: relative;
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Central Line */
+.timeline::after {
+  content: "";
+  position: absolute;
+  width: 4px; /* Line width */
+  background: var(--glass-border);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+  border-radius: 2px;
+}
+
+.timeline-item {
+  padding: 10px 40px;
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-content {
+  padding: 2rem;
+  position: relative;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.timeline-content:hover {
+  border-color: var(--primary);
+  transform: translateY(-5px);
+}
+
+.timeline-icon {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: -65px; /* Adjust based on padding */
+  top: 20px;
+  background: var(--bg-dark);
+  border: 4px solid var(--primary);
+  border-radius: 50%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+
+.timeline-item.right .timeline-icon {
+  left: -65px;
+}
+
+.timeline-date {
+  display: inline-block;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  background: rgba(139, 92, 246, 0.1);
+  padding: 0.2rem 0.8rem;
+  border-radius: 50px;
+}
+
+.timeline-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+  color: var(--text-main);
+}
+
+.timeline-content h4 {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.timeline-content p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 80px; /* Increased from 70px to prevent overlap */
+    padding-right: 25px;
+    margin-bottom: 2rem; /* Add spacing between items */
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    text-align: left;
+  }
+
+  .timeline::after {
+    left: 24px; /* Align line with icon center */
+  }
+
+  .timeline-icon {
+    left: -68px !important; /* Move icon OUTSIDE the card to sit on the line */
+    right: auto;
+    width: 48px;
+    height: 48px;
+    top: 20px; /* Keep consistent top alignment */
+  }
+}

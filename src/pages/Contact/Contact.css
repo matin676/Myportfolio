@@ -1,241 +1,147 @@
-.contact,
-form button {
-  font-family: "Roboto Mono", monospace;
-}
 .contact {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  color: #fff;
-  padding: 7rem 3rem;
+  padding: 8rem 0 4rem;
+  background: linear-gradient(to top, #000 0%, transparent 100%);
 }
-.contact .contact_content {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
 }
-.contact .contact_content .left-contact {
-  display: flex;
-  flex-direction: column;
-}
-.left-contact .big-heading {
-  font-size: 2.2rem;
-}
-.left-contact .smaller-text {
+
+.contact-info h3 {
   font-size: 2rem;
-  padding-top: 2.5rem;
+  margin-bottom: 1.5rem;
 }
-.left-contact .smaller-text a {
-  color: #7fffd4;
-  text-decoration: underline;
+
+.contact-info p {
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  max-width: 400px;
 }
-.left-contact form {
-  position: relative;
-  top: 2rem;
+
+.info-item {
+  margin-bottom: 2rem;
 }
-form .form_content {
-  padding: 0.5rem 0;
-}
-form .form_content label {
+
+.info-item span {
   display: block;
-  position: relative;
-  bottom: 0.3rem;
-  left: 0.5rem;
-  z-index: 10;
-  font-size: 1.3rem;
-  transition: background 0.4s;
-}
-form .form_content input,
-form .form_content textarea {
-  position: relative;
-  width: 60%;
-  height: 100%;
-  border: 2px solid #7fffd4;
-  border-radius: 2rem;
-  padding: 1rem;
-  font-size: 1rem;
-  color: #fff;
-  background: 0 0;
-  outline: 0;
-  z-index: 1;
-}
-.contact li a:after,
-form button:after {
-  display: block;
-  content: "";
-  border-bottom: 2px solid #7fffd4;
-  padding-top: 2px;
-}
-form .form_content-area textarea {
-  resize: none;
-}
-form .form_content-area {
-  height: 10rem;
-}
-form input::placeholder,
-form textarea::placeholder {
-  color: #aeaeaed3;
-}
-form .confirm_msg {
-  padding-top: 2rem;
-  padding-left: 1rem;
-}
-form button {
-  border: none;
-  background: 0 0;
-  font-size: 1.3rem;
-  color: #7fffd4;
-  cursor: pointer;
-  outline: 0;
-  margin-top: 2.5rem;
-  padding: 0 0.5rem;
-  border-radius: 18px;
-  transition: 0.4s ease-in-out;
-}
-form button:after {
-  transform: scaleX(0);
-  transition: transform 0.4s ease-in-out;
-  transform-origin: 0 50%;
-}
-form button:hover:after {
-  transform: scaleX(1);
-  transform-origin: 0 50%;
-}
-button .icon {
-  margin-left: 0.3rem;
-  font-size: 1rem;
-  transform: rotateZ(-45deg);
-  transition: 0.4s;
-}
-.contact .right-contact {
-  padding-bottom: 9rem;
-}
-.contact .right-contact span {
   font-size: 0.9rem;
-  color: #ffffff99;
+  color: var(--text-dim);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
-.contact .right-contact .address {
+
+.info-item a,
+.info-item p {
   font-size: 1.2rem;
-  color: #ffffff99;
-  padding-top: 2.5rem;
+  color: var(--text-main);
+  margin: 0;
 }
-.contact .right-contact .email {
-  font-size: 2rem;
-  padding-top: 1rem;
-}
-.contact ul {
-  padding-top: 4rem;
-}
-.contact li {
-  list-style: none;
-  padding: 1rem 0;
-}
-.contact li a {
-  color: #fff;
-  transition: 0.4s;
-}
-.contact li a:hover,
-.socials a:hover {
-  color: #7fffd4;
-}
-.contact li a:after {
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
-  transform-origin: 0 50%;
-}
-.contact li a:hover:after {
-  transform: scaleX(10%);
-  transform-origin: 0 50%;
-}
-.footer {
-  position: relative;
+
+.social-links {
   display: flex;
-  justify-content: space-evenly;
-  top: 6rem;
+  gap: 1.5rem;
+  margin-top: 3rem;
 }
-.footer .copyright {
+
+.social-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
   display: flex;
-  transform: translateX(-10rem);
-}
-.copyright a {
-  padding-right: 1.5rem;
-  color: #fff;
-  font-family: "DM Sans", sans-serif;
-  font-size: 30px;
-  font-weight: 500;
-}
-.copyright a span {
-  color: #0a0;
-  font-weight: 300;
-}
-.copyright div {
-  font-size: 0.9rem;
-  color: #ffffff99;
-  position: relative;
-  bottom: -1rem;
-}
-.footer .socials {
-  width: 20%;
-  position: relative;
-  transform: translateX(-6rem);
-}
-.socials .social-icon {
-  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-evenly;
+  font-size: 1.2rem;
+  transition: var(--transition);
 }
-.socials a {
-  color: #fff;
-  font-size: 1.5rem;
-  transition: 0.4s ease-in-out;
+
+.social-icon:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-5px);
 }
-@media (max-width: 860px) {
-  .copyright a,
-  .left-contact .big-heading,
-  .left-contact .smaller-text {
-    font-size: 1.5rem;
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.submit-btn {
+  width: 100%;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.success-msg {
+  color: #10b981;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.error-msg {
+  color: #ef4444;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.footer-copyright {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  padding-top: 4rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 4rem 0 2rem;
   }
-  .contact .contact_content {
-    flex-direction: column;
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
-  .contact .right-contact {
-    padding-bottom: 0;
-    margin-top: 5rem;
+
+  .contact-info {
+    text-align: center;
+    order: 2; /* Put form first or info first? Keeping info first usually makes sense, but let's see. Keep default order but center stuff. */
   }
-  .footer {
-    flex-direction: column-reverse;
-    margin-bottom: 5rem;
+
+  .contact-info p {
+    margin: 0 auto 2rem;
   }
-  .footer .copyright {
-    transform: translateX(0);
+
+  .social-links {
     justify-content: center;
-  }
-  .copyright a {
-    padding-right: 0.5rem;
-  }
-  .copyright div {
-    font-size: 0.9rem;
-    bottom: -0.5rem;
-  }
-  .footer .socials {
-    width: 100%;
-    margin-bottom: 1rem;
-    transform: translateX(0);
-  }
-}
-@media (max-width: 630px) {
-  .contact .right-contact .address {
-    font-size: 0.7rem;
-  }
-  .contact .right-contact .email,
-  .copyright a {
-    font-size: 1rem;
-  }
-  form .form_content input,
-  form .form_content textarea {
-    width: 100%;
-  }
-  .copyright div {
-    font-size: 0.5rem;
   }
 }
