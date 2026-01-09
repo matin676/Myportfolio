@@ -33,8 +33,8 @@ A modern, responsive portfolio website showcasing my skills, experience, and pro
 
 ```bash
 # Clone
-git clone https://github.com/matin676/portfolio.git
-cd portfolio
+git clone https://github.com/matin676/Myportfolio.git
+cd Myportfolio
 
 # Install
 npm install
