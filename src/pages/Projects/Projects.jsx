@@ -23,7 +23,7 @@ const projectData = [
   {
     id: 3,
     title: "Employee System",
-    tech: ["PHP", "MySQL", "JS"],
+    tech: ["React", "Prisma", "Tailwind"],
     img: "employee",
     github: "Employee_managment_system",
     demo: "#"
